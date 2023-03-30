@@ -13,7 +13,7 @@ fi
 echo "Using Detach mode"
 echo $detach
 
-railway up "${detach}" --service $1 || error_code=$?
+eval railway up --service $1 "${detach}" || error_code=$?
 if [ "${error_code}" -ne 0 ]; then
     exit $error_code
 else
