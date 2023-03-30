@@ -5,7 +5,15 @@ if [ $2 ] ; then
   export RAILWAY_TOKEN=$2
 fi
 
-railway up --service $1 || error_code=$?
+detach=""
+if [ $3 ] ; then
+  detach="--detach"
+fi
+
+echo "Using Detach mode"
+echo $detach
+
+railway up "${detach}" --service $1 || error_code=$?
 if [ "${error_code}" -ne 0 ]; then
     exit $error_code
 else
