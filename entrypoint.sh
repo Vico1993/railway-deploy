@@ -10,8 +10,11 @@ if [ $3 ] ; then
   detach="--detach"
 fi
 
+error_code=0
 railwayCmd="railway up --service $1 "${detach}" --json"
 eval $railwayCmd || error_code=$?
+
+# out of range
 
 echo "here"
 echo $error_code
