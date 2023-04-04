@@ -10,10 +10,11 @@ if [ $3 ] ; then
   detach="--detach"
 fi
 
-echo "Using Detach mode"
-echo $detach
-
 eval railway up --service $1 "${detach}" --json || error_code=$?
+
+echo "here"
+echo $error_code
+
 if [ "${error_code}" -ne 0 ]; then
     exit $error_code
 else
