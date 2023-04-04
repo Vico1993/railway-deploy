@@ -10,7 +10,8 @@ if [ $3 ] ; then
   detach="--detach"
 fi
 
-eval railway up --service $1 "${detach}" --json || error_code=$?
+railwayCmd = "railway up --service $1 "${detach}" --json"
+eval $railwayCmd || error_code=$?
 
 echo "here"
 echo $error_code
