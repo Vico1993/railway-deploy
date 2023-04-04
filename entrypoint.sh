@@ -11,8 +11,7 @@ if [ $3 ] ; then
 fi
 
 error_code=0
-railwayCmd="railway up --service $1 "${detach}" --json"
-echo $railwayCmd
+railwayCmd="railway up --service $1 "${detach}""
 eval $railwayCmd || error_code=$?
 
 if [ "${error_code}" -ne 0 ]; then
