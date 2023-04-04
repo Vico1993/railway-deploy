@@ -11,13 +11,9 @@ if [ $3 ] ; then
 fi
 
 error_code=0
-railwayCmd="railway up --service $1 "${detach}" --json"
+railwayCmd="railway up --service "${detach}" --json"
+echo $railwayCmd
 eval $railwayCmd || error_code=$?
-
-# out of range
-
-echo "here"
-echo $error_code
 
 if [ "${error_code}" -ne 0 ]; then
     exit $error_code
